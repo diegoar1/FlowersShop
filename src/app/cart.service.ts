@@ -7,13 +7,13 @@ export class CartService {
  
   private data = [
     {
-      category: 'Pizza',
+      category: 'Rosas',
       expanded: true,
       products: [
-        { id: 0, name: 'Salami', price: '8' },
-        { id: 1, name: 'Classic', price: '5' },
-        { id: 2, name: 'Tuna', price: '9' },
-        { id: 3, name: 'Hawai', price: '7' }
+        { id: 0, name: 'Rojas', price: '8' },
+        { id: 1, name: 'Blancas', price: '5' },
+        { id: 2, name: 'Amarillas', price: '9' },
+        { id: 3, name: 'Rosas', price: '7' }
       ]
     },
     {

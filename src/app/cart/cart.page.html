@@ -2,9 +2,9 @@
     <script src="https://unpkg.com/ionicons@4.4.4/dist/ionicons.js"></script>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/"></ion-back-button>
+      <ion-back-button color="warning" defaultHref="/"></ion-back-button>
     </ion-buttons>
-    <ion-title>My Cart</ion-title>
+    <ion-title style="font-family: Century Gothic;">MI ARREGLO</ion-title>
   </ion-toolbar>
 </ion-header>
  
@@ -17,9 +17,9 @@
     <ion-item>
       Total: <span slot="end">{{ total | currency:'USD':'symbol' }}</span>
     </ion-item>
-    <ion-button class="button button-block button-positive">
-      <ion-icon slot="icon-only" name="send"></ion-icon>
-      Send Request
+    <ion-button  expand="block" shape="round" color="warning">
+        <ion-icon name="checkmark-circle-outline"></ion-icon>
+      Checkout
     </ion-button>
   </ion-list>
 </ion-content>
