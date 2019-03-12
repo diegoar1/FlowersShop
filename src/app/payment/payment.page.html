@@ -1,1 +1,27 @@
-<ion-input placeholder="Nombre:"></ion-input
+<ion-header>
+  <ion-toolbar>
+    <ion-title style="font-family:Century Gothic;">Datos de pago</ion-title>
+    <ion-buttons slot="start">
+        <ion-back-button color="warning" defaultHref="/dates"></ion-back-button>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  
+    <ion-item>
+        <ion-label position="floating"><ion-icon name="card" style="color:blue"></ion-icon></ion-label>
+        <ion-input clear-input type="tel" maxlength="16" minlength="16" placeholder="4252 6894 1423 7413" required></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label position="floating"><ion-icon name="calendar" style="color:blue"></ion-icon></ion-label>
+        <ion-input clear-input placeholder="07/99" type="tel" maxlength="4" minlength="4" required></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label position="floating" style="font-family:Century Gothic; font-weight: bold; color:blue">CVC</ion-label>
+        <ion-input clear-input type="tel"  maxlength="3" minlength="3" required></ion-input>
+    </ion-item>
+ 
+    <ion-button (click)="pagar()" color="warning" shape="round" expand="block" color="warning"><ion-icon name="cash"></ion-icon> Pagar </ion-button>
+  
+</ion-content>  

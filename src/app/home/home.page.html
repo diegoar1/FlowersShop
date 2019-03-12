@@ -32,7 +32,9 @@
                 {{ product.name }} 
               </ion-card-title>
               <ion-card-content>
-                <img src="https://via.placeholder.com/300x300"> <br>
+                 
+                      <ion-img [src]="product.image"></ion-img>
+                    
                 <h1>${{ product.price }}</h1>
                 <ion-button shape="round" color="warning" (click)="addToCart(product)">Añadir</ion-button>
               </ion-card-content>
