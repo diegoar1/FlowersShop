@@ -1,9 +1,14 @@
 <ion-header>
   <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-back-button defaultHref="home"></ion-back-button>
+        </ion-buttons>
     <ion-title>notification</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-
+  <p>Latitud: {{lat}}</p>
+  <p>Longitud: {{lon}}</p>
+  <p>Distancia a la floreria uno: {{total}}</p>
 </ion-content>
