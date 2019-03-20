@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CartService } from '../cart.service';
+import { AngularFireAuth } from '@angular/fire/auth';
  
 @Component({
   selector: 'app-home',
@@ -18,7 +19,7 @@ export class HomePage implements OnInit {
     centeredSlides: true
   };
  
-  constructor(private router: Router, private cartService: CartService) { }
+  constructor(private router: Router, private cartService: CartService, public afAuth: AngularFireAuth) { }
  
   ngOnInit() {
     this.items = this.cartService.getProducts();
@@ -31,5 +32,11 @@ export class HomePage implements OnInit {
  
   openCart() {
     this.router.navigate(['cart']);
+  }
+
+  signOut() {
+    this.afAuth.auth.signOut().then(() => {
+      this.router.navigate(['login']);
+    });
   }
 }

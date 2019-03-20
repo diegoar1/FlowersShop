@@ -11,8 +11,9 @@ const routes: Routes = [
   { path: '', loadChildren: './preview/preview.module#PreviewPageModule', canActivate: [TutorialGuard] },
   { path: 'notification', loadChildren: './notification/notification.module#NotificationPageModule' },
   { path: 'dates', loadChildren: './dates/dates.module#DatesPageModule' },
-  { path:  'register', loadChildren:  './auth/register/register.module#RegisterPageModule' },
-  { path:  'login', loadChildren:  './auth/login/login.module#LoginPageModule' },
+  { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
+
+  //{ path: 'terms', loadChildren: './terms/terms.module#TermsPageModule' }
 ];
 
 @NgModule({

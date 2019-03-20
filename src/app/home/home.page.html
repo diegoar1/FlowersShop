@@ -1,19 +1,20 @@
-
-
 <ion-header>
   <ion-toolbar>
     <ion-title style="font-family: Century Gothic;">
       D-Flower 
     </ion-title>
     <ion-buttons slot="end">
+      <ion-button *ngIf="afAuth.auth.currentUser" (click)="signOut()">
+        <ion-icon  name="log-in" style="color:orange;"></ion-icon>
+      </ion-button>
       <ion-button (click)="openCart()">
         <ion-badge style="background:orange;" *ngIf="cart.length > 0">{{ cart.length }}</ion-badge>
-        <ion-icon slot="icon-only" name="flower" style="color:orange;"></ion-icon>
+        <ion-icon  name="flower" style="color:orange;"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
- 
+
 <ion-content>
   <div *ngFor="let cat of items" class="category-block">
  
