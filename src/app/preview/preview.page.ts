@@ -17,7 +17,7 @@ export class PreviewPage {
 
   async finish() {
     await this.storage.set('tutorialComplete', true);
-    this.router.navigateByUrl('/home');
+    this.router.navigateByUrl('/login');
   }
 
 }
