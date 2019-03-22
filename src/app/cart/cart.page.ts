@@ -33,5 +33,9 @@ export class CartPage implements OnInit {
   checkout() {
     this.navCtrl.navigateRoot('/dates');
   }
+
+  foto(){
+    this.navCtrl.navigateRoot('/community');
+  }
   
 }

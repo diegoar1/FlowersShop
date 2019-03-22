@@ -16,7 +16,7 @@ export class TutorialGuard implements CanActivate {
       const isComplete = await this.storage.get('tutorialComplete');
   
       if (!isComplete) {
-        this.router.navigateByUrl('/tutorial');
+        this.router.navigateByUrl('/preview');
       }
   
       return isComplete;

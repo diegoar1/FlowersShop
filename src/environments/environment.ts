@@ -10,7 +10,8 @@ export const environment = {
     databaseURL: "https://flowershop-7a9de.firebaseio.com",
     projectId: "flowershop-7a9de",
     storageBucket: "flowershop-7a9de.appspot.com",
-    messagingSenderId: "105620546298"
+    messagingSenderId: "105620546298",
+    vapidKey: 'BAEyPu-TzF0duSYRLTBdmlrZtEdzVJ4i3ZpQ65znhYt2yUzzKweI69qedRRkbW9ASshThFEm7tTW5HWDRN_8i_I'
   }
 };
 
