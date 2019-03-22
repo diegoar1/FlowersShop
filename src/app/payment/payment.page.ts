@@ -7,10 +7,16 @@ import { Router } from '@angular/router';
   styleUrls: ['./payment.page.scss'],
 })
 export class PaymentPage implements OnInit {
-
+  data:any;
   constructor(private router: Router) { }
 
   ngOnInit() {
+  }
+  ionViewWillEnter() {
+    setTimeout(() => {
+      this.data = {
+      };
+    }, 1000);
   }
 
   pagar(){

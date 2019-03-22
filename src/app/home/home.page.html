@@ -16,6 +16,7 @@
 </ion-header>
 
 <ion-content>
+  <div *ngIf="data">
   <div *ngFor="let cat of items" class="category-block">
  
     <ion-row no-padding class="category-banner">
@@ -46,6 +47,42 @@
     </ion-slides>
 
     
- 
+  </div>
+  </div>
+
+  <div *ngIf="!data">
+      <ion-list class="animated flash slow infinite">
+          <div class="ion-padding custom-skeleton">
+              
+                <div>    
+                 <ion-skeleton-text  style="width: 40%"></ion-skeleton-text>
+                 <ion-skeleton-text  style="width: 60%"></ion-skeleton-text>
+                 <ion-skeleton-text  style="width: 80%"></ion-skeleton-text>
+                 <ion-skeleton-text  style="width: 40%"></ion-skeleton-text>
+                 <ion-skeleton-text  style="width: 60%"></ion-skeleton-text>
+                 <ion-skeleton-text  style="width: 80%"></ion-skeleton-text>
+                 <ion-skeleton-text  style="width: 40%"></ion-skeleton-text>
+                 <ion-skeleton-text  style="width: 60%"></ion-skeleton-text>
+                 <ion-skeleton-text  style="width: 80%"></ion-skeleton-text>
+                 <ion-skeleton-text  style="width: 40%"></ion-skeleton-text>
+                 <ion-skeleton-text  style="width: 60%"></ion-skeleton-text>
+                 <ion-skeleton-text  style="width: 80%"></ion-skeleton-text>
+                 <ion-skeleton-text  style="width: 40%"></ion-skeleton-text>
+                 <ion-skeleton-text  style="width: 60%"></ion-skeleton-text>
+                 <ion-skeleton-text  style="width: 80%"></ion-skeleton-text>
+                 <ion-skeleton-text  style="width: 40%"></ion-skeleton-text>
+                 <ion-skeleton-text  style="width: 60%"></ion-skeleton-text>
+                 <ion-skeleton-text  style="width: 80%"></ion-skeleton-text>
+                 <ion-skeleton-text  style="width: 40%"></ion-skeleton-text>
+                 <ion-skeleton-text  style="width: 60%"></ion-skeleton-text>
+                 <ion-skeleton-text  style="width: 80%"></ion-skeleton-text>
+                            
+                <h1><ion-skeleton-text animated style="width: 40%"></ion-skeleton-text></h1>
+                  
+                    
+                </div>
+              
+          </div>
+      </ion-list>
   </div>
 </ion-content>

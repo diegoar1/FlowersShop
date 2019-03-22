@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { FirebaseUISignInFailure, FirebaseUISignInSuccessWithAuthResult } from 'firebaseui-angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -8,9 +8,8 @@ import { FirebaseUISignInFailure, FirebaseUISignInSuccessWithAuthResult } from '
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-  router: any;
-  
-  constructor(public afAuth: AngularFireAuth) { }
+
+  constructor(public afAuth: AngularFireAuth, public router: Router) { }
 
   ngOnInit() {
     this.login();
@@ -32,5 +31,7 @@ export class LoginPage implements OnInit {
       location.reload();
     });
   }
-
+  home(){
+    this.router.navigate(['home']);
+  }
 }

@@ -9,7 +9,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage implements OnInit {
- 
+  data:any;
   cart = [];
   items = [];
  
@@ -39,4 +39,12 @@ export class HomePage implements OnInit {
       this.router.navigate(['login']);
     });
   }
+
+  ionViewWillEnter() {
+    setTimeout(() => {
+      this.data = {
+      };
+    }, 1000);
+  }
+
 }

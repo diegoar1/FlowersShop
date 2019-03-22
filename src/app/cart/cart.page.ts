@@ -11,7 +11,7 @@ import { NavController } from '@ionic/angular';
 export class CartPage implements OnInit {
  
   selectedItems = [];
- 
+  t=0;
   total = 0;
  
   constructor(private cartService: CartService, public navCtrl: NavController) { }
