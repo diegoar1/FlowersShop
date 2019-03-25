@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CartService } from '../cart.service';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { NavController } from '@ionic/angular';
  
 @Component({
   selector: 'app-home',
@@ -19,7 +20,7 @@ export class HomePage implements OnInit {
     centeredSlides: true
   };
  
-  constructor(private router: Router, private cartService: CartService, public afAuth: AngularFireAuth) { }
+  constructor(private router: Router, private cartService: CartService, public afAuth: AngularFireAuth, public navCtrl: NavController) { }
  
   ngOnInit() {
     this.items = this.cartService.getProducts();
@@ -45,6 +46,10 @@ export class HomePage implements OnInit {
       this.data = {
       };
     }, 1000);
+  }
+
+  community(){
+    this.navCtrl.navigateRoot('/community');
   }
 
 }

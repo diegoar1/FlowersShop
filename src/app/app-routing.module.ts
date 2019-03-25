@@ -10,14 +10,13 @@ const routes: Routes = [
   { path: 'cart', loadChildren: './cart/cart.module#CartPageModule' },
   { path: 'pago', loadChildren: './payment/payment.module#PaymentPageModule' },
   { path: 'preview', loadChildren: './preview/preview.module#PreviewPageModule', canActivate: [TutorialGuard] },
-  
+  { path: 'community', loadChildren: './community/community.module#CommunityPageModule'},
+  { path: 'profile', loadChildren: './profile/profile.module#ProfilePageModule' },
+  { path: 'upload', loadChildren: './upload/upload.module#UploadPageModule' },
   { path: 'notification', loadChildren: './notification/notification.module#NotificationPageModule' },
   { path: 'dates', loadChildren: './dates/dates.module#DatesPageModule' },
-
   { path: '', loadChildren: './preview/preview.module#PreviewPageModule', canActivate: [TutorialGuard] },
-  
-  
-  //{ path: 'terms', loadChildren: './terms/terms.module#TermsPageModule' }
+
 ];
 
 @NgModule({

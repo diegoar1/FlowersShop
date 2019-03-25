@@ -1,6 +1,5 @@
 import { CartService } from './../cart.service';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
  
 @Component({
@@ -33,9 +32,4 @@ export class CartPage implements OnInit {
   checkout() {
     this.navCtrl.navigateRoot('/dates');
   }
-
-  foto(){
-    this.navCtrl.navigateRoot('/community');
-  }
-  
 }

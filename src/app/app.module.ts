@@ -1,22 +1,19 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
-
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { IonicStorageModule } from '@ionic/storage';
-
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-
 import { Geolocation } from '@ionic-native/geolocation/ngx';
-
 import {AngularFireModule} from '@angular/fire';
 import {AngularFireAuthModule} from '@angular/fire/auth';
 import {FirebaseUIModule, firebase, firebaseui} from 'firebaseui-angular';
 import { environment } from 'src/environments/environment';
 import { Camera } from '@ionic-native/camera/ngx';
+import {HttpModule} from '@angular/http';
 
 
 
@@ -56,6 +53,7 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
     IonicStorageModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
+    HttpModule,
     FirebaseUIModule.forRoot(firebaseUiAuthConfig)
   ],
   providers: [

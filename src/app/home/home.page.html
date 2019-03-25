@@ -7,6 +7,9 @@
       <ion-button *ngIf="afAuth.auth.currentUser" (click)="signOut()">
         <ion-icon  name="log-in" style="color:orange;"></ion-icon>
       </ion-button>
+      <ion-button *ngIf="afAuth.auth.currentUser" (click)="community()">
+        <ion-icon name="people" style="color:orange;"></ion-icon>
+      </ion-button>
       <ion-button (click)="openCart()">
         <ion-badge style="background:orange;" *ngIf="cart.length > 0">{{ cart.length }}</ion-badge>
         <ion-icon  name="flower" style="color:orange;"></ion-icon>

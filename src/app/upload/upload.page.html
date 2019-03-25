@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Upload Image</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-button expand="block" shape="round" color="warning" (click)="takePhoto()"> Uploader </ion-button>
+    <ion-button expand="block" shape="round" color="warning" (click)="useGallery()"> Pick up image from your gallery </ion-button>
+    <img [src]="image" *ngIf="image" />
+
+    <input type="file" *ngIf="!imageURL" (change) = "fileChanged($event)">
+
+    <ion-card *ngIf="!imageURL">
+      <img *ngIf="imageURL" src="https://ucarecdn.com/{{imageURL}}/" />
+      <ion-card-content>
+        <ion-textarea placeholder="description" [(ngModel)] = "desc"></ion-textarea>
+        <ion-button shape="round" color="primary" (click)="createPost()">POST</ion-button>
+      </ion-card-content>
+    </ion-card>
+
+</ion-content>
