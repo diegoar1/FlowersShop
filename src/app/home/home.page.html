@@ -10,7 +10,7 @@
       <ion-button *ngIf="afAuth.auth.currentUser" (click)="community()">
         <ion-icon name="people" style="color:orange;"></ion-icon>
       </ion-button>
-      <ion-button (click)="openCart()">
+      <ion-button (click)="openCart()"  [disabled]="!esActivo">
         <ion-badge style="background:orange;" *ngIf="cart.length > 0">{{ cart.length }}</ion-badge>
         <ion-icon  name="flower" style="color:orange;"></ion-icon>
       </ion-button>

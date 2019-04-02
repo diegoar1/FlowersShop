@@ -14,6 +14,7 @@ import {FirebaseUIModule, firebase, firebaseui} from 'firebaseui-angular';
 import { environment } from 'src/environments/environment';
 import { Camera } from '@ionic-native/camera/ngx';
 import {HttpModule} from '@angular/http';
+import { FormBuilder, FormControl, ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 
 
@@ -50,6 +51,8 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
     BrowserModule, 
     IonicModule.forRoot(), 
     AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
     IonicStorageModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
