@@ -3,6 +3,8 @@ import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { NavController } from '@ionic/angular';
 import { Http } from '@angular/http';
 import { Firebase } from '@ionic-native/firebase/ngx';
+import * as firebase from "firebase";
+import { File } from "@ionic-native/file/ngx";
 
 @Component({
   selector: 'app-upload',
@@ -19,7 +21,8 @@ export class UploadPage implements OnInit {
     private camera: Camera, 
     public navCtrl: NavController, 
     public http: Http,
-    public cameraPlugin: Camera
+    public cameraPlugin: Camera,
+    private file: File
     ) { }
 
   ngOnInit() {

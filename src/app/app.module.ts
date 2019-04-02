@@ -4,7 +4,6 @@ import { RouteReuseStrategy } from '@angular/router';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
-import { IonicStorageModule } from '@ionic/storage';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
@@ -14,7 +13,11 @@ import {FirebaseUIModule, firebase, firebaseui} from 'firebaseui-angular';
 import { environment } from 'src/environments/environment';
 import { Camera } from '@ionic-native/camera/ngx';
 import {HttpModule} from '@angular/http';
-
+import { File } from '@ionic-native/file/ngx';
+import { WebView } from '@ionic-native/ionic-webview/ngx';
+import { SQLite, SQLiteObject } from '@ionic-native/sqlite/ngx';
+import { IonicStorageModule } from '@ionic/storage';
+import { HttpClientModule } from '@angular/common/http';
 
 
 const firebaseUiAuthConfig: firebaseui.auth.Config = {
@@ -54,6 +57,7 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     HttpModule,
+    HttpClientModule,
     FirebaseUIModule.forRoot(firebaseUiAuthConfig)
   ],
   providers: [
@@ -61,6 +65,8 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
     SplashScreen,
     Geolocation,
     Camera,
+    WebView,
+    File,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
