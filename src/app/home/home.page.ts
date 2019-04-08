@@ -11,6 +11,7 @@ import { NavController } from '@ionic/angular';
 })
 export class HomePage implements OnInit {
   data:any;
+  esActivo = false;
   cart = [];
   items = [];
  
@@ -25,10 +26,12 @@ export class HomePage implements OnInit {
   ngOnInit() {
     this.items = this.cartService.getProducts();
     this.cart = this.cartService.getCart();
+   
   }
  
   addToCart(product) {
-    this.cartService.addProduct(product);
+    this.cartService.addProduct(product); 
+    this.esActivo = true;
   }
  
   openCart() {

@@ -9,29 +9,83 @@
   
   <ion-content padding>
         <div *ngIf="data">
-        <ion-list>
+        
+    <form [formGroup]="validations_form"  (ngSubmit)="onSubmit(validations_form.value)">
       <ion-item>
-          <ion-label position="floating" style="font-family:Century Gothic;">Calle:</ion-label>
-          <ion-input clear-input type ="string" required></ion-input>
+          <ion-label position="floating"   class="font">Calle:</ion-label>
+          <ion-input clear-input  formControlName="calle" type ="string" required></ion-input>
       </ion-item>
+      <div class="validation-errors">
+            <ng-container *ngFor="let validation of validation_messages.calle">
+              <div class="error-message font" *ngIf="validations_form.get('calle').hasError(validation.type) && (validations_form.get('calle').dirty || validations_form.get('calle').touched)">
+                <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
+              </div>
+            </ng-container>
+          </div>
       <ion-item>
-          <ion-label position="floating" style="font-family:Century Gothic;">Colonia:</ion-label>
-          <ion-input type ="text" clear-input required></ion-input>
+          <ion-label position="floating" class="font">Colonia:</ion-label>
+          <ion-input type ="text" formControlName="colonia"clear-input required></ion-input>
       </ion-item>
+      <div class="validation-errors">
+            <ng-container *ngFor="let validation of validation_messages.calle">
+              <div class="error-message font" *ngIf="validations_form.get('calle').hasError(validation.type) && (validations_form.get('calle').dirty || validations_form.get('calle').touched)">
+                <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
+              </div>
+            </ng-container>
+          </div>
       <ion-item>
-          <ion-label position="floating" style="font-family:Century Gothic;">Municipio:</ion-label>
-          <ion-input type="text" clear-input required></ion-input>
+          <ion-label position="floating" class="font">Municipio:</ion-label>
+          <ion-input type="text" formControlName="municipio" clear-input required></ion-input>
       </ion-item>
+      <div class="validation-errors">
+            <ng-container *ngFor="let validation of validation_messages.municipio">
+              <div class="error-message font" *ngIf="validations_form.get('municipio').hasError(validation.type) && (validations_form.get('municipio').dirty || validations_form.get('municipio').touched)">
+                <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
+              </div>
+            </ng-container>
+          </div>
       <ion-item>
-          <ion-label position="floating" style="font-family:Century Gothic;">Estado:</ion-label>
-          <ion-input type="text" clear-input required></ion-input>
+            <ion-label position="floating" class="font">Estado:</ion-label>
+            <ion-select class="font" formControlName="gender" cancelText="Cancel" okText="OK">
+              <ion-select-option class="font" *ngFor="let gender of genders" [value]="gender">{{gender}}</ion-select-option>
+            </ion-select>
       </ion-item>
+
       <ion-item>
-          <ion-label position="floating" style="font-family:Century Gothic;">Código postal:</ion-label>
-          <ion-input clear-input type="tel"  maxlength="5" minlength="5" required></ion-input>
+          <ion-label position="floating" class="font">Código postal:</ion-label>
+          <ion-input clear-input type="tel"  formControlName="codigoP" maxlength="5" minlength="5" required></ion-input>
       </ion-item>
-      <ion-button (click)="envia()" color="warning" shape="round" expand="block" color="warning"><ion-icon name="paper-plane"> </ion-icon>Enviar información</ion-button>
-    </ion-list>
+      <div class="validation-errors">
+            <ng-container *ngFor="let validation of validation_messages.codigoP">
+              <div class="error-message font" *ngIf="validations_form.get('codigoP').hasError(validation.type) && (validations_form.get('codigoP').dirty || validations_form.get('codigoP').touched)">
+                <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
+              </div>
+            </ng-container>
+          </div>
+      <ion-item>
+            <ion-label position="floating" class="font">Número Exterior:</ion-label>
+            <ion-input clear-input type="tel"   formControlName="numeroE" maxlength="5" minlength="2" required></ion-input>
+        </ion-item>
+        <div class="validation-errors">
+                <ng-container *ngFor="let validation of validation_messages.numeroE">
+                  <div class="error-message font" *ngIf="validations_form.get('numeroE').hasError(validation.type) && (validations_form.get('numeroE').dirty || validations_form.get('numeroE').touched)">
+                    <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
+                  </div>
+                </ng-container>
+              </div>
+        <ion-item>
+                <ion-label position="floating" class="font">Número interior:</ion-label>
+                <ion-input clear-input type="tel"   formControlName="numeroI" maxlength="5" minlength="2" required></ion-input>
+            </ion-item>
+            <div class="validation-errors">
+                    <ng-container *ngFor="let validation of validation_messages.numeroI">
+                      <div class="error-message font" *ngIf="validations_form.get('numeroI').hasError(validation.type) && (validations_form.get('numeroI').dirty || validations_form.get('numeroI').touched)">
+                        <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
+                      </div>
+                    </ng-container>
+                  </div>
+      <ion-button (click)="envia()" color="warning" shape="round" expand="block" color="warning" type="submit" [disabled]="!validations_form.valid"><ion-icon name="paper-plane"> </ion-icon>Enviar información</ion-button>
+    </form>
     </div>
 
       <div *ngIf="!data">
