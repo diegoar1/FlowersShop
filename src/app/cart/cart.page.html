@@ -11,9 +11,7 @@
 <ion-content>
   <ion-list>
     <ion-item *ngFor="let item of selectedItems" lines="inset">
-     
         <ion-img [src]="item.image"></ion-img> 
-      
       {{item.category}} {{ item.name }} x {{ item.count }} - {{ item.price | currency:'MXN':'symbol' }}
       <ion-label slot="end" text-right>{{ (item.price * item.count) | currency:'MXN':'symbol' }}</ion-label>
     </ion-item>
