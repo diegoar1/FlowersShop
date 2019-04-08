@@ -5,6 +5,8 @@ import { Http } from '@angular/http';
 import { Firebase } from '@ionic-native/firebase/ngx';
 import * as firebase from "firebase";
 import { File } from "@ionic-native/file/ngx";
+import { AngularFireStorage } from '@angular/fire/storage';
+import { IonicStorageModule } from '@ionic/storage';
 
 @Component({
   selector: 'app-upload',
@@ -15,14 +17,15 @@ export class UploadPage implements OnInit {
   
   image : any;
   imageURL: String;
-  desc: String;
 
   constructor(
     private camera: Camera, 
     public navCtrl: NavController, 
     public http: Http,
     public cameraPlugin: Camera,
-    private file: File
+    private file: File,
+    private storage: AngularFireStorage,
+    private ionicStorage: IonicStorageModule
     ) { }
 
   ngOnInit() {
@@ -71,25 +74,20 @@ export class UploadPage implements OnInit {
       this.image = 'data:image/jpeg;base64,' + imageData;
       // imageData is either a base64 encoded string or a file URI
       // If it's base64 (DATA_URL):
+      this.onUpload();
      }, (err) => {
       // Handle error
       console.error();
      });
   }
 
-  fileChanged(event){
-    const files = event.target.files
-    console.log(files)
-
-    const data = new FormData()
-    data.append('file', files[0])
-    data.append('UPLOADCARE_STORE', '1')
-    data.append('UPLOADCARE_PUB_KEY', 'd7a5e1eb1d949cb30680')  
-
-    this.http.post('https://upload.uploadcare.com/base/', data)
-    .subscribe( event => {
-      console.log(event) 
-      this.imageURL = event.json().file
-    })
+  onUpload(){
+    const filePath = 'community/image.jpeg'
+    const file = Image;
+    const task = this.storage.upload(filePath, file);
   }
+
 }
+
+
+

@@ -15,9 +15,9 @@ import { Camera } from '@ionic-native/camera/ngx';
 import {HttpModule} from '@angular/http';
 import { File } from '@ionic-native/file/ngx';
 import { WebView } from '@ionic-native/ionic-webview/ngx';
-import { SQLite, SQLiteObject } from '@ionic-native/sqlite/ngx';
 import { IonicStorageModule } from '@ionic/storage';
 import { HttpClientModule } from '@angular/common/http';
+import {AngularFireStorageModule} from '@angular/fire/storage';
 
 
 const firebaseUiAuthConfig: firebaseui.auth.Config = {
@@ -58,7 +58,8 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
     AngularFireAuthModule,
     HttpModule,
     HttpClientModule,
-    FirebaseUIModule.forRoot(firebaseUiAuthConfig)
+    FirebaseUIModule.forRoot(firebaseUiAuthConfig),
+    AngularFireStorageModule
   ],
   providers: [
     StatusBar,

@@ -15,7 +15,7 @@ const routes: Routes = [
   { path: 'upload', loadChildren: './upload/upload.module#UploadPageModule' },
   { path: 'notification', loadChildren: './notification/notification.module#NotificationPageModule' },
   { path: 'dates', loadChildren: './dates/dates.module#DatesPageModule' },
-  { path: '', loadChildren: './preview/preview.module#PreviewPageModule', canActivate: [TutorialGuard] },
+  { path: '', loadChildren: './preview/preview.module#PreviewPageModule'},
 
 ];
 
