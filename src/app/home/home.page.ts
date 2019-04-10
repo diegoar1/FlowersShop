@@ -52,7 +52,7 @@ export class HomePage implements OnInit {
   }
 
   community(){
-    this.navCtrl.navigateRoot('/community');
+    this.navCtrl.navigateRoot('/upload');
   }
 
 }

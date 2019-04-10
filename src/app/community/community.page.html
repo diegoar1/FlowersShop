@@ -1,16 +1,18 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>community</ion-title>
+    <ion-title>Encuesta</ion-title>
     <ion-buttons slot="start">
-      <ion-back-button color="warning" defaultHref="/home"></ion-back-button>
-    </ion-buttons>
-    <ion-buttons slot= "end">
-        <ion-button (click)="uploader()">
-            <ion-icon name="cloud-upload" style="color:orange;"></ion-icon>
-          </ion-button>
+      <ion-back-button color="warning" defaultHref="/"></ion-back-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
+    <div class="ec-stars-wrapper" style="margin-top:6%; margin-left: 12%;" (click)="presentAlert()">
+        <a href="/home" data-value="1" title="Votar con 1 estrellas" (click)="presentAlert()">&#9733;</a>
+        <a href="/home" data-value="2" title="Votar con 2 estrellas" (click)="presentAlert()">&#9733;</a>
+        <a href="/home" data-value="3" title="Votar con 3 estrellas" (click)="presentAlert()">&#9733;</a>
+        <a href="/home" data-value="4" title="Votar con 4 estrellas" (click)="presentAlert()">&#9733;</a>
+        <a href="/home" data-value="5" title="Votar con 5 estrellas" (click)="presentAlert()">&#9733;</a>
+      </div>
 </ion-content>

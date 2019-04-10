@@ -1,14 +1,18 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Upload Image</ion-title>
+    <ion-title>Comunidad</ion-title>
     <ion-buttons slot="start">
-        <ion-back-button color="warning" defaultHref="/community"></ion-back-button>
+        <ion-back-button color="warning" defaultHref="/home"></ion-back-button>
       </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-    <ion-button expand="block" shape="round" color="warning" (click)="takePhoto()"> Uploader </ion-button>
-    <ion-button expand="block" shape="round" color="warning" accept=".png, .jpg" (click)="useGallery()"> Pick up image from your gallery </ion-button>
-    <img [src]="image" *ngIf="image" />
+  
+    <ion-button expand="block" shape="round" color="warning" (click)="takePhoto()"> Tomar foto </ion-button>
+    <ion-button expand="block" shape="round" color="warning" accept=".png, .jpg" (click)="useGallery()"> Seleccionar de la galeria </ion-button>
+    <ion-input type="text" [value]="urlImage | async"></ion-input>
+    <ion-img [src]="image" *ngIf="image"></ion-img>
+  
+    
 </ion-content>

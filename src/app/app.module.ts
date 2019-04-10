@@ -1,4 +1,3 @@
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
@@ -9,8 +8,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 
 import {AngularFireModule} from '@angular/fire';
-import {AngularFireStorageModule} from '@angular/fire/storage';
-import { AngularFirestore } from '@angular/fire/firestore';
 
 import {AngularFireAuthModule} from '@angular/fire/auth';
 import {FirebaseUIModule, firebase, firebaseui} from 'firebaseui-angular';
@@ -21,7 +18,10 @@ import { File } from '@ionic-native/file/ngx';
 import { WebView } from '@ionic-native/ionic-webview/ngx';
 import { IonicStorageModule } from '@ionic/storage';
 import { HttpClientModule } from '@angular/common/http';
-import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
+import {AngularFireStorageModule} from '@angular/fire/storage';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { NgModule } from '@angular/core';
+
 
 const firebaseUiAuthConfig: firebaseui.auth.Config = {
   signInSuccessUrl: '/home',
@@ -66,12 +66,12 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
   ],
   providers: [
     StatusBar,
+    AngularFirestore,
     SplashScreen,
     Geolocation,
     Camera,
     WebView,
     File,
-    LocalNotifications,
     AngularFirestore,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],

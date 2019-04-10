@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { Storage } from '@ionic/storage';
 import { WebView } from '@ionic-native/ionic-webview/ngx';
 import { finalize } from 'rxjs/operators';
+import { AlertController } from '@ionic/angular';
 
 
 const STORAGE_KEY = 'my_images';
@@ -30,7 +31,8 @@ export class CommunityPage implements OnInit {
     private webview: WebView,
     private toastcontroller: ToastController,
     private actionSheetController: ActionSheetController, 
-    private loadingController: LoadingController
+    private loadingController: LoadingController,
+    public alertController: AlertController
   ) { }
 
   ngOnInit() {
@@ -208,6 +210,16 @@ export class CommunityPage implements OnInit {
 
   uploader() {
     this.navCtrl.navigateRoot('/upload');
+  }
+
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      header: 'Felicidades!',
+      message: 'Su arreglo va en camino',
+      buttons: ['OK']
+    });
+
+    await alert.present();
   }
   
 }

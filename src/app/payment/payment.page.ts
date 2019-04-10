@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, ValidationErrors, FormBuilder, FormControl, Validators } from '@angular/forms';
-import { LocalNotifications, ELocalNotificationTriggerUnit } from '@ionic-native/local-notifications/ngx';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-payment',
@@ -12,7 +12,11 @@ export class PaymentPage implements OnInit {
   data:any;
   validations_form: FormGroup;
   validation_messages : ValidationErrors;
-  constructor(private router: Router, public formBuilder: FormBuilder, private localNotifications: LocalNotifications) { }
+  constructor(
+    private router: Router, 
+    public formBuilder: FormBuilder,
+    public alertController: AlertController
+    ) { }
 
   ngOnInit() {
     this.validations_form = this.formBuilder.group({
@@ -65,7 +69,7 @@ export class PaymentPage implements OnInit {
     this.router.navigate(['notification']);
   }
 
-  notification(seconds: number){
+  /* notification(seconds: number){
     this.localNotifications.schedule({
       title: `Notification`,
       text: `Gracias por realizar tu pedido con nostros :)`,
@@ -75,5 +79,19 @@ export class PaymentPage implements OnInit {
         unit: ELocalNotificationTriggerUnit.SECOND,
       },
     });
+  } */
+  valoracion(){
+    this.router.navigate(['comunity']);
   }
+
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      header: 'Felicidades!',
+      message: 'Su arreglo va en camino',
+      buttons: ['OK']
+    });
+
+    await alert.present();
+  }
+
 }
