@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormControl, Validators, FormGroup, FormBuilder, ValidationErrors } from '@angular/forms';
+import { NavController, LoadingController } from '@ionic/angular';
+import { datos } from '../models/datos.interface';
+import { DatosService } from '../services/datos.service';
 
 @Component({
   selector: 'app-dates',
@@ -12,8 +15,25 @@ export class DatesPage implements OnInit {
   validations_form: FormGroup;
   genders: Array<string>;
   validation_messages : ValidationErrors;
+
+  dato: datos = {
+    calle: '',
+    colonia: '',
+    municipio: '',
+    estado: '',
+    codigo_postal: '',
+    numero_exterior: '',
+    numero_interior: '',
+  };
+
+  datoId= null;
   
-  constructor(private router : Router, public formBuilder: FormBuilder) { }
+  constructor(private datosService: DatosService, 
+    private router : Router, 
+    public formBuilder: FormBuilder, 
+    private loadingController: LoadingController,
+    private nav: NavController,
+    ) { }
 
   ngOnInit() {
     this.genders = [
@@ -82,6 +102,17 @@ export class DatesPage implements OnInit {
   }
   envia(){
     this.router.navigate(['pago']);
+  }
+
+  async save(){
+    const loading = await this.loadingController.create({
+      message: 'Saving....'
+    });
+    await loading.present();
+    this.datosService.addDatos(this.dato).then(() => {
+      loading.dismiss();
+      this.nav.navigateForward('/pago');
+    });
   }
 
 }

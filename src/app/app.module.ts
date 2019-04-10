@@ -7,7 +7,11 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
+
 import {AngularFireModule} from '@angular/fire';
+import {AngularFireStorageModule} from '@angular/fire/storage';
+import { AngularFirestore } from '@angular/fire/firestore';
+
 import {AngularFireAuthModule} from '@angular/fire/auth';
 import {FirebaseUIModule, firebase, firebaseui} from 'firebaseui-angular';
 import { environment } from 'src/environments/environment';
@@ -17,8 +21,7 @@ import { File } from '@ionic-native/file/ngx';
 import { WebView } from '@ionic-native/ionic-webview/ngx';
 import { IonicStorageModule } from '@ionic/storage';
 import { HttpClientModule } from '@angular/common/http';
-import {AngularFireStorageModule} from '@angular/fire/storage';
-
+import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 
 const firebaseUiAuthConfig: firebaseui.auth.Config = {
   signInSuccessUrl: '/home',
@@ -59,7 +62,7 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
     HttpModule,
     HttpClientModule,
     FirebaseUIModule.forRoot(firebaseUiAuthConfig),
-    AngularFireStorageModule
+    AngularFireStorageModule,
   ],
   providers: [
     StatusBar,
@@ -68,6 +71,8 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
     Camera,
     WebView,
     File,
+    LocalNotifications,
+    AngularFirestore,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

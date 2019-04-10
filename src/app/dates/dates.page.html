@@ -27,14 +27,14 @@
           <ion-input type ="text" formControlName="colonia"clear-input required></ion-input>
       </ion-item>
       <div class="validation-errors">
-            <ng-container *ngFor="let validation of validation_messages.calle">
-              <div class="error-message font" *ngIf="validations_form.get('calle').hasError(validation.type) && (validations_form.get('calle').dirty || validations_form.get('calle').touched)">
+            <ng-container *ngFor="let validation of validation_messages.colonia">
+              <div class="error-message font" *ngIf="validations_form.get('colonia').hasError(validation.type) && (validations_form.get('colonia').dirty || validations_form.get('colonia').touched)">
                 <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
               </div>
             </ng-container>
           </div>
       <ion-item>
-          <ion-label position="floating" class="font">Municipio:</ion-label>
+          <ion-label  position="floating" class="font">Municipio:</ion-label>
           <ion-input type="text" formControlName="municipio" clear-input required></ion-input>
       </ion-item>
       <div class="validation-errors">
@@ -74,7 +74,7 @@
                 </ng-container>
               </div>
         <ion-item>
-                <ion-label position="floating" class="font">Número interior:</ion-label>
+                <ion-label  position="floating" class="font">Número interior:</ion-label>
                 <ion-input clear-input type="tel"   formControlName="numeroI" maxlength="5" minlength="2" required></ion-input>
             </ion-item>
             <div class="validation-errors">
@@ -84,7 +84,7 @@
                       </div>
                     </ng-container>
                   </div>
-      <ion-button (click)="envia()" color="warning" shape="round" expand="block" color="warning" type="submit" [disabled]="!validations_form.valid"><ion-icon name="paper-plane"> </ion-icon>Enviar información</ion-button>
+      <ion-button (click)="save()" color="warning" shape="round" expand="block" color="warning" type="submit" [disabled]="!validations_form.valid"><ion-icon name="paper-plane"> </ion-icon>Enviar información</ion-button>
     </form>
     </div>
 

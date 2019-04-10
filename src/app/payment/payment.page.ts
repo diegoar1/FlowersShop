@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, ValidationErrors, FormBuilder, FormControl, Validators } from '@angular/forms';
+import { LocalNotifications, ELocalNotificationTriggerUnit } from '@ionic-native/local-notifications/ngx';
 
 @Component({
   selector: 'app-payment',
@@ -11,7 +12,7 @@ export class PaymentPage implements OnInit {
   data:any;
   validations_form: FormGroup;
   validation_messages : ValidationErrors;
-  constructor(private router: Router, public formBuilder: FormBuilder) { }
+  constructor(private router: Router, public formBuilder: FormBuilder, private localNotifications: LocalNotifications) { }
 
   ngOnInit() {
     this.validations_form = this.formBuilder.group({
@@ -64,4 +65,15 @@ export class PaymentPage implements OnInit {
     this.router.navigate(['notification']);
   }
 
+  notification(seconds: number){
+    this.localNotifications.schedule({
+      title: `Notification`,
+      text: `Gracias por realizar tu pedido con nostros :)`,
+      trigger: {
+        //at: new Date(new Date().getTime() + ms),
+        in: seconds,
+        unit: ELocalNotificationTriggerUnit.SECOND,
+      },
+    });
+  }
 }
